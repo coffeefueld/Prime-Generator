@@ -57,9 +57,12 @@ int main() {
             close(fdin[1]);
             
             while(1){
+                //for(int k =0;k<3;k++){
+                usleep(100);
                 if(poll(&(struct pollfd){ .fd = fdin[0], .events = POLLIN }, 1, 2000) == 0) {
                     break;
                 }
+                //}
                 read(fdin[0], &numbers, sizeof(numbers));
 
                 if(primeCheck(numbers)){
@@ -67,7 +70,6 @@ int main() {
                 }
             }
             close(fdin[0]);
-            printf("Thread Done...\n");
             exit(0);
         }
     }
@@ -81,5 +83,6 @@ int main() {
     for(i = 0;i<threads;i++) {
         wait(NULL);
     } 
+    printf("Finishing Up...\n");
     close(fdin[1]);
 }
