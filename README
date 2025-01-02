@@ -1,6 +1,4 @@
-DISCLAMER: This project will only work on Unix-like operating systems
+### DISCLAMER: This project will only work on Unix-like operating systems
 
 Compilation instructions:
-```
-    $ make
-```
+    `$ make`
