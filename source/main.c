@@ -77,8 +77,8 @@ int main() {
     for(numbers = start; numbers < lim; numbers++){
         write(fdin[1], &numbers, sizeof(numbers));
     }
-    close(fdin[1]);
     for(i = 0;i<threads;i++) {
         wait(NULL);
     } 
+    close(fdin[1]);
 }
