@@ -67,6 +67,7 @@ int main() {
                 }
             }
             close(fdin[0]);
+            printf("Done...\n");
             exit(0);
         }
     }
