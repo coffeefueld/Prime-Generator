@@ -7,8 +7,10 @@ Just clone the repository and then simply run:
 $ make
 ```
 Feel free to make any changes to the code.
-# Use
+# Use:
 ```bash
-$ ./foo
+$ ./prime-gen
 ```
-Follow the prompt instructions
+Follow the prompt instructions.
+# Uninstall:
+Simply run `$ make clean` or just remove the `prime-gen` binary file.
