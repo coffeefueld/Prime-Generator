@@ -1,5 +1,5 @@
 # Prime Number Generator 
-## DISCLAIMER: This project will only work on Unix-like operating systems
+### DISCLAIMER: This project will only work on Unix-like operating systems.
 
 # Compilation instructions:
 
