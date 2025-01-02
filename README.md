@@ -2,8 +2,7 @@
 ### DISCLAIMER: This project will only work on Unix-like operating systems.
 
 # Compilation instructions:
-Just clone the repository and cd into the `source/` directory.
-Then run:
+Just clone the repository and cd into the `source/` directory.<br />Then run:
 ```bash
 $ make
 ```
