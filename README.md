@@ -1,6 +1,13 @@
-### DISCLAIMER: This project will only work on Unix-like operating systems
+# Prime Number Generator 
 
-Compilation instructions:
+## DISCLAIMER: This project will only work on Unix-like operating systems
+
+# Compilation instructions:
 
 ```bash
 $ make
+```
+
+# Use
+
+Follow the prompt instructions
