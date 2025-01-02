@@ -67,7 +67,7 @@ int main() {
                 }
             }
             close(fdin[0]);
-            printf("Done...\n");
+            printf("Thread Done...\n");
             exit(0);
         }
     }
