@@ -8,5 +8,7 @@ $ make
 ```
 
 # Use
-
+```bash
+$ ./foo
+```
 Follow the prompt instructions
