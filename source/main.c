@@ -18,7 +18,7 @@ int main() {
     int threads;
     
     long ncpu;
-    ncpu = sysconf(_SC_NPROCESSORS_ONLN); // Find out number of total logical processing cores in the running system.
+    ncpu = sysconf(_SC_NPROCESSORS_ONLN); // Find out number of total virtual processing cores (cpu threads) in the running system.
     // Variables used to store big numbers
     long long unsigned int numbers = 0; 
     long long unsigned int start;
@@ -33,7 +33,7 @@ int main() {
     
     /* MENU */
 
-    printf("How many threads would you like the program to use (recommended 4): ");
+    printf("How many threads would you like the program to use (recommended 4, you have %ld threads available): ", ncpu);
     scanf("%d", &threads);
     if(threads > ncpu || threads < 0) { // Checks if the user options are compatible with the system
         printf("Error: incorrect amount of threads\nYour system supports up to %ld threads, try something less than that.\n", ncpu);
