@@ -54,7 +54,7 @@ int main() {
         {
             /* child */
 
-            close(fdin[1]);
+            close(fdin[1]); // Closes unised pipe
             
             while(1){
                 usleep(100); // Sleeps to make sure the program doesng hang in the end. If your execution hangs in the end inclrease by +100 untill it doesn't
@@ -63,24 +63,25 @@ int main() {
                 }
                 read(fdin[0], &numbers, sizeof(numbers)); // Reads from pipe
 
-                if(primeCheck(numbers)){ // Checks if the number read from the pipe is a prime and if so it prints it on STDOUT
+                if(primeCheck(numbers)){ // Checks if the number read from the pipe is a prime and if so it prints it to STDOUT
                     printf("%llu\n", numbers);
                 }
             }
-            close(fdin[0]);
+            close(fdin[0]); // Closes pipe
             exit(0);
         }
     }
         
     /* parent*/
 
-    close(fdin[0]);
-    for(numbers = start; numbers < lim; numbers++){
+    close(fdin[0]); // Closes unused pipe
+    
+    for(numbers = start; numbers < lim; numbers++){ // Writes the numbers in the pipe
         write(fdin[1], &numbers, sizeof(numbers));
     }
-    for(i = 0;i<threads;i++) {
+    for(i = 0;i<threads;i++) { // Waits for all the children to finish
         wait(NULL);
     } 
     printf("Finishing Up...\n");
-    close(fdin[1]);
+    close(fdin[1]); // Closes pipe
 }
