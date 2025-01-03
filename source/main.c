@@ -49,7 +49,7 @@ int main() {
     
     pid_t p[threads];
     for (i = 0; i< threads;i++) {
-        p[i] = fork();
+        p[i] = fork(); //Array of PIDs
         if (p[i] == 0)
         {
             /* child */
@@ -57,15 +57,13 @@ int main() {
             close(fdin[1]);
             
             while(1){
-                //for(int k =0;k<3;k++){
-                usleep(100);
-                if(poll(&(struct pollfd){ .fd = fdin[0], .events = POLLIN }, 1, 2000) == 0) {
+                usleep(100); // Sleeps to make sure the program doesng hang in the end. If your execution hangs in the end inclrease by +100 untill it doesn't
+                if(poll(&(struct pollfd){ .fd = fdin[0], .events = POLLIN }, 1, 2000) == 0) { // Checks to see if the pipe is empty, if so the child terminates 
                     break;
                 }
-                //}
-                read(fdin[0], &numbers, sizeof(numbers));
+                read(fdin[0], &numbers, sizeof(numbers)); // Reads from pipe
 
-                if(primeCheck(numbers)){
+                if(primeCheck(numbers)){ // Checks if the number read from the pipe is a prime and if so it prints it on STDOUT
                     printf("%llu\n", numbers);
                 }
             }
